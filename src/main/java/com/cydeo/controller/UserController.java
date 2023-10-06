@@ -36,14 +36,17 @@ public class UserController {
     @PostMapping("/create")
     public String insertUser(@ModelAttribute("user") UserDTO user, Model model){
 
-        model.addAttribute("user", new UserDTO());
-        model.addAttribute("roles", roleService.findAll());
+//        model.addAttribute("user", new UserDTO());
+//        model.addAttribute("roles", roleService.findAll());
 
-//        userService.save();
-        model.addAttribute("users", userService.findAll());
+        userService.save(user);
+
+//        model.addAttribute("users", userService.findAll());
+
+        //Commented out section is not needed because the redirect function below loads the original empty-form create page.
 
 
-        return "user/create"; //user attribute, role attribute, users to populate table
+        return "redirect:user/create"; //user attribute, role attribute, users to populate table
     }
 
 }
