@@ -42,7 +42,6 @@ public class UserController {
 
         //Commented out section is not needed because the redirect function below loads the original empty-form create page.
 
-
         return "redirect:user/create"; //user attribute, role attribute, users to populate table
     }
 
@@ -55,7 +54,7 @@ public class UserController {
         //2. roles
         //3. users
 
-        model.addAttribute("user", new UserDTO());
+        model.addAttribute("user", userService.findById(username));
         model.addAttribute("roles", roleService.findAll());
         model.addAttribute("users", userService.findAll());
 
