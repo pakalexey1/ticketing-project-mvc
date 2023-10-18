@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserServiceImpl extends AbstractMapService <UserDTO,String> implements UserService {
+public class UserServiceImpl extends AbstractMapService<UserDTO, String> implements UserService {
 
 
     @Override
     public UserDTO save(UserDTO object) {
-        return super.save(object.getUserName(),object);
+        return super.save(object.getUserName(), object);
     }
 
     @Override
@@ -32,6 +32,6 @@ public class UserServiceImpl extends AbstractMapService <UserDTO,String> impleme
 
     @Override
     public void update(UserDTO object) {
-        super.update(object.getUserName(),object);
+        super.update(object.getUserName(), object);
     }
 }
