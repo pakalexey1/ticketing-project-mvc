@@ -130,13 +130,13 @@
                                             <tr th:each="projectLoop : ${projects}">
                                                 <td th:text="${projectLoop.projectCode}"></td>
                                                 <td th:text="${projectLoop.projectName}"></td>
-                                                <td th:text="${projectLoop.startDate + '-' + projectLoop.endDate}"></td>
+                                                <td th:text="${#temporals.format(projectLoop.startDate,'MM.dd.yyyy') + ' - ' + #temporals.format(projectLoop.endDate,'MM.dd.yyyy')}"></td>
                                                 <td th:text="${projectLoop.assignedManager.firstName + ' ' + projectLoop.assignedManager.lastName}"></td>
-                                                <td th:text="${projectLoop.projectStatus}"></td>
+                                                <td th:text="${projectLoop.projectStatus.value}"></td>
                                                 <td>
                                                     <a href="#"><button type="button" class="btn btn-warning rounded-0">Update</button></a>
-                                                    <a href="#"><button type="button" class="btn btn-danger rounded-0">Delete</button></a>
-                                                    <a href="#"><button type="button" class="btn btn-info rounded-0">Complete</button></a>
+                                                    <a th:href="@{/project/delete/{id}(id=${projectLoop.getProjectCode()})}"><button type="button" class="btn btn-danger rounded-0">Delete</button></a>
+                                                    <a th:href="@{/project/complete/{id}(id=${projectLoop.getProjectCode()})}"><button type="button" class="btn btn-info rounded-0">Complete</button></a>
                                                 </td>
                                             </tr>
                                             </tbody>
