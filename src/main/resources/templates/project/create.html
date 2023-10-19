@@ -127,12 +127,12 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                            <tr th:each="projectLoop : ${projects}">
+                                                <td th:text="${projectLoop.projectCode}"></td>
+                                                <td th:text="${projectLoop.projectName}"></td>
+                                                <td th:text="${projectLoop.startDate + '-' + projectLoop.endDate}"></td>
+                                                <td th:text="${projectLoop.assignedManager.firstName + ' ' + projectLoop.assignedManager.lastName}"></td>
+                                                <td th:text="${projectLoop.projectStatus}"></td>
                                                 <td>
                                                     <a href="#"><button type="button" class="btn btn-warning rounded-0">Update</button></a>
                                                     <a href="#"><button type="button" class="btn btn-danger rounded-0">Delete</button></a>
